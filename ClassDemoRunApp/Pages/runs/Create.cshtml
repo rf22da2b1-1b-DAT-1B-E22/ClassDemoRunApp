@@ -1,0 +1,52 @@
+﻿@page
+@model ClassDemoRunApp.Pages.runs.CreateModel
+@{
+}
+
+<h1>Opret en nyt Medlem</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="@Model.Id" class="control-label">Medlems Id</label><br>
+                <input asp-for="@Model.Id" class="form-control" /><br>
+                <span asp-validation-for="@Model.Id" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Navn</label><br>
+                <input asp-for="@Model.Navn" class="form-control" /><br />
+                <span asp-validation-for="@Model.Navn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Mobil</label><br>
+                <input asp-for="@Model.Mobil" class="form-control" /><br />
+                <span asp-validation-for="@Model.Mobil" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Hold</label><br>
+                <input asp-for="@Model.Hold" class="form-control" /><br />
+                @if (!string.IsNullOrEmpty(Model.ErrorHold))
+                {
+                    <div class="text-danger">@Model.ErrorHold</div>
+                }
+            </div>
+
+            <div class="form-group">
+                <label>Pris</label><br>
+                <input asp-for="@Model.Price" class="form-control" /><br />
+                <span asp-validation-for="@Model.Price" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Opret Medlem" />
+            </div>
+
+        </form>
+    </div>
+</div>

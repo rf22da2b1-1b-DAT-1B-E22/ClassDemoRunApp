@@ -1,0 +1,45 @@
+﻿@page
+@model ClassDemoRunApp.Pages.runs.DeleteModel
+@{
+}
+<h1>Vil du slette</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Medlems Id</td>
+            <td>@Model.Medlem.MedlemsId</td>
+        </tr>
+        <tr>
+            <td>Medlems Id</td>
+            <td>@Model.Medlem.MedlemsId</td>
+        </tr>
+        <tr>
+            <td>Navn</td>
+            <td>@Model.Medlem.Navn</td>
+        </tr>
+        <tr>
+            <td>Medlems Mobil</td>
+            <td>@Model.Medlem.Mobil</td>
+        </tr>
+        <tr>
+            <td>Medlems LøbeHold</td>
+            <td>@Model.Medlem.LøbeHold</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<form method="post">
+    <div class="form-group">
+        <input type="submit" value="Slet" asp-page-handler="Slet" asp-route-id="@Model.Medlem.MedlemsId" class="btn btn-danger" />
+
+        <input type="submit" value="Fortryd" asp-page-handler="Fortryd" class="btn btn-primary" />
+    </div>
+</form>
