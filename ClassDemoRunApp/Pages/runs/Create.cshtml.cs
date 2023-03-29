@@ -49,11 +49,17 @@ namespace ClassDemoRunApp.Pages.runs
         //private static String msg = "";
 
 
+        [BindProperty]
+        public MedlemsType Type { get; set; }
+
+        public List<MedlemsType> MedlemsTyper { get; private set; }
+
 
 
         // når siden vises
         public void OnGet()
         {
+            MedlemsTyper = Enum.GetValues<MedlemsType>().ToList();
         }
 
 
@@ -62,11 +68,12 @@ namespace ClassDemoRunApp.Pages.runs
         {
             if (!ModelState.IsValid)
             {
+                MedlemsTyper = Enum.GetValues<MedlemsType>().ToList();
                 return Page();
             }
             try
             {
-                Medlem medlem = new Medlem(Navn, Id, Mobil, Hold, Price);
+                Medlem medlem = new Medlem(Navn, Id, Mobil, Hold, Price, Type);
 
                 service.Create(medlem);
 
@@ -74,6 +81,7 @@ namespace ClassDemoRunApp.Pages.runs
             }
             catch (Exception ex)
             {
+                MedlemsTyper = Enum.GetValues<MedlemsType>().ToList();
                 ErrorHold = ex.Message;
                 return Page();
             }

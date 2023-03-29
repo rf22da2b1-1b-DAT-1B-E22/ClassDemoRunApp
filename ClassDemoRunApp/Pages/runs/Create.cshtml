@@ -41,7 +41,15 @@
                 <span asp-validation-for="@Model.Price" class="text-danger"></span>
             </div>
 
-
+            <div class="form-group">
+                <label>Medlems Type</label><br>
+                <select id="Type" name="Type" asp-for="Type" class="form-control">
+                    @foreach (var mt in Model.MedlemsTyper)
+                    {
+                        <option value="@mt">@mt</option>
+                    }
+                </select>
+            </div>
 
             <div class="form-group">
                 <input type="submit" value="Opret Medlem" />
